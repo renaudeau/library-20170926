@@ -1,0 +1,81 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>fr.uni.institute.library</groupId>
+	<artifactId>library-parent</artifactId>
+	<version>${library.version}</version>
+	<packaging>pom</packaging>
+	<name>library-parent</name>
+	<description>Gestion de la bibliotheque</description>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-site-plugin</artifactId>
+				<version>3.6</version>
+				<dependencies>
+					<dependency>
+						<groupId>org.apache.maven.wagon</groupId>
+						<artifactId>wagon-webdav-jackrabbit</artifactId>
+						<version>2.6</version>
+					</dependency>
+				</dependencies>
+			</plugin>
+
+		</plugins>
+	</build>
+
+	<properties>
+		<library.version>1.0.1-SNAPSHOT</library.version>
+	</properties>
+
+	<dependencies>
+
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>1.2.16</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/junit/junit -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.12</version>
+			<scope>test</scope>
+		</dependency>
+
+	</dependencies>
+
+	<distributionManagement>
+		<!-- Publish versioned releases here -->
+		<repository>
+			<id>nexus-repo</id>
+			<name>My releases</name>
+			<url>http://localhost:8081/repository/maven-releases/</url>
+		</repository>
+
+		<!-- Publish snapshots here -->
+		<snapshotRepository>
+			<id>nexus-repo</id>
+			<name>My snapshots</name>
+			<url>http://localhost:8081/repository/maven-snapshots/</url>
+		</snapshotRepository>
+
+		<site>
+			<id>nexus-repo</id>
+			<url>dav:http://localhost:8081/repository/sites/</url>
+		</site>
+
+	</distributionManagement>
+
+
+	<modules>
+		<module>library-model</module>
+		<module>library-dao-api</module>
+		<module>library-dao-impl</module>
+		<module>library-web</module>
+		<module>library-services-api</module>
+		<module>library-services-impl</module>
+	</modules>
+</project>
