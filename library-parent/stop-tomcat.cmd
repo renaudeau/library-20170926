@@ -2,16 +2,18 @@ echo "-----------------------"
 echo "Stop tomcat instance"
 echo "-----------------------"
 
-SET CATALINA_HOME="C:\formation\servers\apache-tomcat-8.5.20"
+REM SET CATALINA_HOME="C:\Program Files\Apache Software Foundation\Tomcat 8.0\"
 
-echo "Using tomcat %CATALINA_HOME%"
+REM echo "Using tomcat %CATALINA_HOME%"
 
-%CATALINA_HOME%\bin\catalina.bat stop
+REM %CATALINA_HOME%\bin\tomcat.ext stop
+
+net stop Tomcat8
 
 echo "-----------------------"
 echo "tomcat is stoping      "
 
-timeout 5
+timeout 2
 
 echo "tomcat stoped          "
 echo "-----------------------"
