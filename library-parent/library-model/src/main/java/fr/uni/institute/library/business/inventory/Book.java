@@ -61,6 +61,7 @@ public class Book extends Title {
 	 */
 	public void accept(InventoryVisitor v) throws InventoryException {
 		v.visitBook(this);
+		System.out.println("toto");
 	}
 
 	/**
